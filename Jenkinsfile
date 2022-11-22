@@ -39,7 +39,6 @@ pipeline{
 		stage("docker push"){
 			steps{
 				script{
-					'''withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-pwd')]) {'''
 					sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 					sh 'docker login -u naren818 -p ${docker-hub-pwd}'
 					sh 'docker push naren818/java-jsp-diary'
