@@ -24,10 +24,10 @@ pipeline{
 		}
 		stage("docker build"){
 			steps{
-				sshagent(['docker']) {
-					environment{
+				environment{
 						PATH = "$PATH:/usr/bin/docker/"
 							}
+				sshagent(['docker']) {
 				script{
 					sh "docker build -t naren818/java-jsp-diary ."
 
