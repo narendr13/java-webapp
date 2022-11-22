@@ -30,7 +30,7 @@ pipeline{
 			steps{
 				sshagent(['docker']) {
 				script{
-					sh "docker build -t naren818/java-jsp-diary ."
+					sh "docker build -t naren818/java-jsp-diary:v1 ."
 				}
 				}
 				
@@ -40,8 +40,7 @@ pipeline{
 			steps{
 				script{
 					sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-					sh 'docker login -u naren818 -p ${docker-hub-pwd}'
-					sh 'docker push naren818/java-jsp-diary'
+					sh 'docker push naren818/java-jsp-diary:v1'
 					}
 				}
 			
