@@ -35,5 +35,15 @@ pipeline{
 				
 			}
 		}
+		stage("docker push"){
+			steps{
+				script{
+					withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-pwd')]) {
+					sh 'docker login -u naren818 -p $(docker-hub-pwd)
+					sh 'docker push naren818/java-jsp-diary'
+					}
+				}
+			}
+		}
   }
 }
