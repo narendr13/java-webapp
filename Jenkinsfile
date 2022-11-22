@@ -15,5 +15,12 @@ pipeline{
 				sh "mvn install -DskipTests"
 			}
 		}
+		stage("Maven Build "){
+			steps{
+			sshagent(['ssh']) {
+				sh "scp /var/lib/jenkins/workspace/java-webapp/target/java-jsp-diary.war ubuntu@174.129.51.67 /opt/tomcat/webapps"
+				}
+			}
+		}
   }
 }
