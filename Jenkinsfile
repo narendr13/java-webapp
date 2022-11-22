@@ -27,13 +27,12 @@ pipeline{
 		}
 		stage("docker build"){
 			steps{
-				withEnv(["DOCKER_HOST=54.88.105.9"]) {
 				sshagent(['docker']) {
 				script{
 					sh "docker build -t naren818/java-jsp-diary ."
 				}
 				}
-				}
+				
 			}
 		}
   }
