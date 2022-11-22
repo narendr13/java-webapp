@@ -3,6 +3,9 @@ pipeline{
 	tools {
   		maven 'maven'
 	}
+	environment{
+		PATH = "$PATH:/usr/bin/docker/"
+	}
 	stages{
 		stage("Git Checkout"){
 			steps{
@@ -24,18 +27,12 @@ pipeline{
 		}
 		stage("docker build"){
 			steps{
-				environment{
-						PATH = "$PATH:/usr/bin/docker/"
-							}
 				sshagent(['docker']) {
 				script{
 					sh "docker build -t naren818/java-jsp-diary ."
-
 				}
 				}
-			
 			}
-		
 		}
   }
 }
