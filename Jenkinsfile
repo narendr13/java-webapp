@@ -22,5 +22,15 @@ pipeline{
 				}
 			}
 		}
+		stage("docker build"){
+			steps{
+				script{
+					sh "docker build -t naren818/java-jsp-diary ."
+
+				}
+			
+			}
+		
+		}
   }
 }
