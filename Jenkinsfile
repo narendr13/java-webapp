@@ -29,7 +29,7 @@ pipeline{
 		stage("docker build"){
 			steps{
 				script{
-					sh "chown -X ubuntu:ubuntu /root/var/"
+					sh "chmod +rwx ubuntu:ubuntu /root/var/"
 					sh "docker build -t naren818/java-jsp-diary:v2 ."
 				}
 			}
