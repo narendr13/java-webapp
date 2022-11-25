@@ -28,9 +28,7 @@ pipeline{
 		}
 		stage("docker build"){
 			steps{
-				sshagent(['docker']) {
-					sh "docker build -t naren818/java-jsp-diary:v2 ."
-				}
+				sh "docker build -t naren818/java-jsp-diary:v2 ."
 				
 			}
 		}
