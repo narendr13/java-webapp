@@ -4,6 +4,7 @@ pipeline{
   		maven 'maven'
 	}
 	environment{
+		PATH = "$PATH:/usr/bin/docker/"
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
 	stages{
