@@ -28,8 +28,8 @@ pipeline{
 		}
 		stage("docker build"){
 			steps{
+				sh "chown -R ubuntu:ubuntu /root/var/"
 				sh "docker build -t naren818/java-jsp-diary:v2 ."
-				
 			}
 		}
 		stage("docker push"){
