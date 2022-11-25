@@ -29,6 +29,7 @@ pipeline{
 		stage("docker build"){
 			steps{
 				script{
+					sh "sudo usermod -aG docker ubuntu"
 					sh "docker build -t naren818/java-jsp-diary:v2 ."
 				}
 			}
